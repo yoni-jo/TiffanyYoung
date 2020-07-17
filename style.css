@@ -1,0 +1,1014 @@
+:root {
+    /* color */
+    --white-color: white;
+    --dark-color: #0f0000;
+    --pink-color: #fac2dc;
+    /* font */
+    --text-size: 15px;
+    --font-san: 'Roboto', sans-serif;
+    --font-Ral: 'Raleway', sans-serif;
+    --font-h1: 'Playfair Display', serif;
+    --font-h3: 'Raleway', sans-serif;
+
+}
+
+/* 공통적용 */
+html,
+body,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-size: var(--text-size);
+}
+
+body {
+    position: relative;
+}
+
+ul,
+li {
+    list-style: none;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    font-family: var(--font-san);
+
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+
+    width: 100%;
+    background-attachment: fixed;
+}
+
+.Title {
+    width: 100%;
+    position: relative;
+    animation: fadein 0.5s;
+}
+
+.Title h2 {
+    margin: 2em;
+    letter-spacing: 1.0rem;
+    text-align: center;
+    font-family: var(--font-h1);
+    font-size: 3.5em;
+    font-weight: lighter;
+}
+
+.Title h2::after {
+    content: ' ';
+    position: absolute;
+    bottom: -20px;
+    left: calc(100%/2 - 50px);
+    height: 1px;
+    width: 100px;
+    border: var(--pink-color) 1px solid;
+
+}
+
+/* 햄버거버튼 */
+#hb_button_wrap {
+    display: none;
+    position: absolute;
+    right: 8%;
+    top: 16px
+}
+
+input[id="hb_button"] {
+    display: none;
+}
+
+input[id="hb_button"]+label {
+    display: block;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+input[id="hb_button"]+label span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    transition: all .3s;
+
+}
+
+input[id="hb_button"]+label span:nth-child(1) {
+    top: 0
+}
+
+input[id="hb_button"]+label span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+input[id="hb_button"]+label span:nth-child(3) {
+    bottom: 0
+}
+
+/* 햄버거버튼 클릭시 x버튼변환 */
+input[id="hb_button"]:checked+label span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+input[id="hb_button"]:checked+label span:nth-child(2) {
+    right: 100%;
+    opacity: 0;
+}
+
+input[id="hb_button"]:checked+label span:nth-child(3) {
+    bottom: 50%;
+
+    transform: translateY(50%) rotate(-45deg);
+
+}
+
+
+
+/* header영역 */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+}
+
+header #gnb {
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0;
+    animation: fadein 0.8s 3.5s forwards;
+}
+
+header a {
+    color: var(--white-color);
+}
+
+header #gnb .icons ul {
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+header #gnb .icons ul li:not(:first-child) {
+    margin-left: 10px;
+    text-align: center;
+
+
+}
+
+header #gnb .icons a {
+    font-size: var(--text-size);
+}
+
+header .logo {
+    text-align: center;
+    width: 100%;
+}
+
+header .logo a img {
+    width: 300px;
+    padding: 20px;
+    animation: fadein 0.8s;
+
+}
+
+header #menu {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    animation: fadein 0.8s 1.2s forwards;
+}
+
+header #menu ul {
+    display: flex;
+}
+
+header #menu ul li:not(:first-child) {
+    margin-left: 25px;
+}
+
+header #menu ul li a {
+    font-family: var(--font-Ral);
+    font-size: 15px;
+}
+
+header #menu div {
+    position: absolute;
+    right: 15%
+}
+
+/*메뉴버튼 호버 */
+#menu>ul li span {
+    display: block;
+    height: 3px;
+    transform: translateY(-100%);
+}
+
+a:hover {
+    color: var(--pink-color)
+}
+
+#menu>ul li:hover span {
+    animation: width 0.3s ease-in both;
+    background-color: var(--pink-color);
+}
+
+/* 스크롤 이벤트시 header 영역 */
+
+.gnb_hide {
+    display: none !important;
+}
+
+.change {
+    background: var(--white-color);
+}
+
+.change a {
+    color: var(--dark-color);
+    animation: fadein 0.8s 3.5s forwards;
+
+}
+
+
+/* section영역  */
+
+section.section_hide {
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+
+
+/* section top */
+section#top_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+section#top_content h1 {
+    font-family: var(--font-h1);
+    font-size: 3.5rem;
+    font-weight: lighter;
+    letter-spacing: 10px;
+    animation: fadeout 2.8s 2.5s ease both;
+
+}
+
+section#top_content h3 {
+    font-family: var(--font-h3);
+    font-size: 1.5em;
+    line-height: 1.5em;
+    font-weight: 100;
+    margin: 0;
+    letter-spacing: 5px;
+    animation: fadeout 2.5s 2.8s ease both;
+
+
+}
+
+section#top_content h1,
+h3 {
+    color: var(--white-color);
+    padding: 0;
+    display: block;
+
+}
+
+section#top_content {
+    background-image: url(img/hero-img.jpg);
+
+    background-repeat: none;
+    background-size: cover;
+    filter: blur(0) grayscale(0);
+}
+
+
+/* section bg_news */
+
+section#bg_news {
+    background-color: #fff;
+}
+
+
+
+
+section#bg_news .news_list {
+    width: 100%;
+}
+
+section#bg_news .news_list ul {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+}
+
+section#bg_news .news_list li {
+    opacity: 0;
+    width: calc(100%/4);
+}
+
+section.section_show .news_list li a {
+    color: var(--dark-color)
+}
+
+section.section_show .news_list li a:hover div {
+    color: var(--pink-color)
+}
+
+section.section_show .news_list li:nth-child(1) {
+
+
+    animation: showup 0.5s ease-in-out 0.5s forwards;
+}
+
+section.section_show .news_list li:nth-child(2) {
+
+    animation: showup 0.5s ease-in-out 1.0s forwards;
+}
+
+section.section_show .news_list li:nth-child(3) {
+
+    animation: showup 0.5s ease-in-out 1.5s forwards;
+}
+
+section.section_show .news_list li:nth-child(4) {
+
+    animation: showup 0.5s ease-in-out 2.0s forwards;
+}
+
+section#bg_news .news_list li a {
+    display: block;
+    padding: 20px;
+}
+
+section#bg_news .news_list li a:nth-child(1) div {
+    height: 25vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+}
+
+section#bg_news .news_list li h3 {
+    font-size: 11px;
+    padding-left: 20px;
+    color: #959aa0;
+    letter-spacing: 2.5px;
+}
+
+section#bg_news .news_list li:nth-child(1) a:nth-child(1) div {
+
+    background-image: url(img/news/Screen-Shot-2019-11-25-at-4.34.23-PM.png);
+
+}
+
+section#bg_news .news_list li:nth-child(2) a:nth-child(1) div {
+
+    background-image: url(img/news/78207295_1392241867566566_278024696337793024_n.jpg);
+
+}
+
+section#bg_news .news_list li:nth-child(3) a:nth-child(1) div {
+
+    background-image: url(img/news/76956984_1384797071644379_2971714273266368512_n.jpg);
+
+}
+
+section#bg_news .news_list li:nth-child(4) a:nth-child(1) div {
+
+    background-image: url(img/news/TIFF-ATL-75-scaled.jpg);
+
+}
+
+section#bg_news .news_list li a:last-child div {
+    font-size: 1.75em;
+    padding-bottom: 20px;
+}
+
+section#bg_news .NewsButtonwrap {
+    width: 100%;
+    line-height: 1.5;
+    text-align: center;
+}
+
+section#bg_news .NewsButtonwrap>button {
+    width: 200px;
+    height: 80px;
+    border: 0px;
+    background-color: #fff;
+    font-family: var(--font-h3);
+    font-weight: 400;
+
+    color: #62666b;
+    cursor: pointer;
+}
+
+section#bg_news .NewsButtonwrap>button:hover {
+
+    color: #959aa0;
+}
+
+/* shop 영역 */
+
+section#shop {
+    background-image: url(img/shop/hp_bg_shop.jpg);
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section#shop a {
+    letter-spacing: 3px;
+    font-size: 14px;
+    color: var(--white-color);
+    line-height: 60px;
+    display: block;
+    border: 2px solid;
+    text-align: center;
+    width: 250px;
+    height: 60px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+section#shop a:hover {
+    border: 2px solid rgb(49, 49, 49);
+    background-color: rgb(49, 49, 49);
+
+}
+
+/* media영역 */
+section#media {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+section#media>div {
+    cursor: pointer;
+    width: calc(100%/3);
+    text-align: center;
+    background-size: cover;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+
+}
+
+section#media div:hover .cover {
+    transition: 0.4s;
+    opacity: 0.5;
+    visibility: visible;
+
+}
+
+section#media div>.cover {
+    position: absolute;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: black;
+}
+
+section#media>div:nth-child(1) {
+    background-image: url(img/media/hp_music.jpg);
+
+}
+
+section#media>div:nth-child(2) {
+    background-image: url(img/media/hp_videos.jpg);
+
+}
+
+section#media>div:nth-child(3) {
+    background-image: url(img/media/hp_photos.webp);
+
+}
+
+section#media>div h2 {
+    color: var(--white-color);
+    font-family: var(--font-h1);
+    font-size: 2.0rem;
+    letter-spacing: 6px;
+    font-weight: 300;
+    z-index: 999;
+}
+
+section#media>div h2:hover {
+    color: var(--pink-color)
+}
+
+/* newsletter 영역*/
+
+section#newsletter {
+    background-image: url(img/news/newsletter-cta.jpg);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    background-attachment: local;
+    justify-content: center;
+    flex-direction: column;
+}
+
+section#newsletter .newsletter_wrap {
+
+    margin: 0 auto;
+    max-width: 960px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+
+section#newsletter .newsletter_wrap h2 {
+    color: var(--white-color);
+    font-family: var(--font-h1);
+    text-align: left;
+    font-weight: 400;
+    letter-spacing: 10px;
+    font-size: 3.5rem;
+    position: relative;
+    opacity: 1;
+    animation: fadeout 0.5s;
+}
+
+section#newsletter .newsletter_wrap h2::after {
+    content: ' ';
+    position: absolute;
+    width: 100px;
+    background-color: #fff;
+    height: 1px;
+    left: 0;
+    bottom: -20px;
+}
+
+section#newsletter .newsletter_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 50%;
+    padding-top: 5rem;
+
+}
+section#newsletter .newsletter_title{
+    margin:0 10%;
+}
+section#newsletter .newsletter_text p {
+    font-weight: 200;
+    color: var(--white-color);
+    text-align: left;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+
+    animation: fadeout 0.5s ease-in-out;
+}
+
+section#newsletter .newsletter_text a {
+    letter-spacing: 3px;
+    font-size: 14px;
+    color: var(--pink-color);
+    line-height: 60px;
+    display: block;
+    border: 2px solid;
+    text-align: center;
+    width: 250px;
+    height: 60px;
+    font-weight: bold;
+    transition: 0.2s;
+    margin-top: 1.5rem;
+
+    animation: fadein 0.5s ease-in-out;
+
+}
+
+/* footer영역 */
+/* footer top영역 */
+footer {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.footer_top {
+
+    height: 100%;
+    background-color: #333;
+
+    padding: 3em;
+}
+
+.footer_top p {
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--white-color)
+}
+
+.footer_top ul {
+    display: flex;
+    justify-content: center;
+}
+
+.footer_top ul li:not(:first-child) {
+    margin-left: 2rem;
+}
+
+.footer_top li:hover i {
+    color: var(--pink-color);
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+
+.footer_top i {
+    font-size: 2rem;
+    color: var(--white-color);
+    transition: 0.3s;
+}
+
+
+/* footer bottom영역 */
+.footer_bottom {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #232323;
+    color: var(--white-color);
+}
+
+.footer_bottom ul {
+    margin: 0 auto;
+    display: inline-flex;
+}
+
+.footer_bottom ul li:not(:first-child) {
+    margin-left: 20px;
+}
+
+.footer_bottom a:hover {
+    color: var(--pink-color);
+    opacity: 1;
+}
+
+.footer_bottom a,
+p {
+    color: var(--white-color);
+    font-size: 10px;
+    font-weight: lighter;
+    opacity: 0.4;
+    letter-spacing: 3px;
+}
+
+.footer_bottom p {
+    margin-top: 1.5rem;
+
+}
+
+.footer_bottom>p>a {
+    font-size: 11px;
+    font-weight: bolder;
+    opacity: 1;
+    color: var(--white-color);
+}
+
+/* 애니메이션영역 */
+/* 앱실행시 밑에서 위로 or 아래;에서 위로  나타는 애니메이션 */
+@keyframes fadein {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0%)
+    }
+
+
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+
+    50% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+
+    to {
+
+        opacity: 0;
+        transform: translateZ(100%);
+    }
+
+
+
+}
+
+@keyframes showup {
+    0% {
+        opacity: 0;
+        transform: scaleZ(0)
+    }
+
+    100% {
+        opacity: 1;
+
+        transform: scaleZ(100%);
+    }
+
+}
+
+/* 마우스호버시 밑줄애니메이션 */
+
+@keyframes width {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+        width: 100%;
+        height: 2px;
+    }
+
+}
+
+/* 반응형영역 */
+
+@media screen and (max-width:990px) {
+
+    /* header영역 */
+
+
+    header #gnb {
+        background-color: var(--white-color);
+        animation: none;
+        opacity: 1;
+    }
+
+    header a {
+        color: var(--dark-color);
+    }
+
+    #menu_gnb {
+        width: 100%;
+        height: 50px;
+        background-color: var(--dark-color);
+        position: relative;
+
+    }
+
+    #menu_gnb .logo {
+        height: 100%;
+    }
+
+    #menu_gnb .logo a {
+        text-align: left;
+        display: block;
+        height: 100%;
+
+    }
+
+    #menu_gnb .logo a img {
+        vertical-align: middle;
+        padding: 0;
+
+        z-index: 444;
+    }
+
+    #menu_gnb #menu {
+        margin: 0;
+        position: absolute;
+        width: 100%;
+        top: 50px;
+    }
+
+
+    #menu_gnb #menu .hide {
+        flex-direction: column;
+        background-color: var(--dark-color);
+        width: 100%;
+        visibility: hidden;
+    }
+
+
+    #menu_gnb #menu>ul li {
+        height: 0;
+        background-color: var(--dark-color);
+
+    }
+
+    #menu_gnb #menu>ul li a {
+
+        opacity: 0;
+    }
+
+    #menu_gnb #menu .show {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #menu_gnb #menu .show li {
+        transition: 0.5s;
+        height: 50px;
+    }
+
+    #menu_gnb #menu .show li a {
+        opacity: 1;
+    }
+
+    #menu_gnb a {
+        color: white;
+        display: block;
+        text-align: center;
+        line-height: 50px;
+    }
+
+    #menu_gnb #menu .icon_menu {
+        top: -50px;
+        right: calc(50%/4);
+        animation: fadein 0.8s forwards;
+    }
+
+    #menu_gnb #menu .icon_menu a {
+
+        font-size: 19px
+    }
+
+    #menu_gnb #menu .icon_menu img {
+        margin-left: 20px;
+    }
+
+    #menu_gnb #menu .icon_menu>ul>li:nth-child(2) {
+        display: none;
+    }
+
+    /* 햄버거버튼 */
+    #hb_button_wrap {
+        display: block;
+        opacity: 0;
+        animation: fadein 0.9s forwards;
+        z-index: 333;
+    }
+
+    /* section영역 */
+
+    /* section news영역 */
+    section#bg_news .news_list ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    section#bg_news .news_list ul li {
+
+        flex: 50%;
+        max-width: 50%;
+    }
+
+    section#bg_news .news_list ul li a:nth-child(1) div {
+        height: 50vh;
+    }
+
+    section#bg_news .news_list li h3 {
+        font-size: 11px;
+        padding-left: 20px;
+        color: var(--dark-color);
+    }
+
+    /* section newsletter영역 */
+
+    section#newsletter .newsletter_wrap {
+        margin: 15%;
+        height: 210px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+    }
+    section#newsletter .newsletter_wrap .newsletter_title {
+        margin:0;
+
+    }
+    section#newsletter .newsletter_wrap h2 {
+        font-size: 2rem;
+    }
+
+    section#newsletter .newsletter_wrap p {
+        margin-top: 2rem;
+        font-weight: 200;
+    }
+
+    section#newsletter .newsletter_wrap a {
+
+        text-align: center;
+
+    }
+
+    section#newsletter .newsletter_text {
+        padding-top:0;
+        align-items: baseline;
+    }
+
+    .footer_bottom ul {
+
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer_bottom ul li {
+        width: 100%;
+        margin-left: 0px!important;
+        height: 50px;
+        border-bottom: 1px solid var(--white-color);
+    }
+
+    .footer_bottom ul li a {
+        display: block;
+        height: 100%;
+        line-height: 50px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    header #gnb {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header #gnb .icons ul {
+        justify-content: center;
+    }
+
+    section#bg_news .news_list ul li {
+
+        flex: 100%;
+        max-width: 100%;
+    }
+
+    section#media {
+
+        flex-direction: column;
+
+    }
+
+    section#media>div {
+        width: 100%;
+        height: 100%;
+
+        background-position: center;
+    }
+}
