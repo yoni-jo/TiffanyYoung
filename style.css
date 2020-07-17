@@ -24,6 +24,7 @@ li {
 }
 
 body {
+
     position: relative;
 }
 
@@ -51,7 +52,7 @@ section {
 }
 
 .Title {
-    width: 100%;
+    max-width: 100%;
     position: relative;
     animation: fadein 0.5s;
 }
@@ -265,6 +266,7 @@ section#top_content {
     align-items: center;
     flex-direction: column;
     height: 100vh;
+    
 }
 
 section#top_content h1 {
@@ -302,6 +304,7 @@ section#top_content {
     background-repeat: none;
     background-size: cover;
     filter: blur(0) grayscale(0);
+    background-position: center center;
 }
 
 
@@ -588,9 +591,11 @@ section#newsletter .newsletter_text {
     padding-top: 5rem;
 
 }
-section#newsletter .newsletter_title{
-    margin:0 10%;
+
+section#newsletter .newsletter_title {
+    margin: 0 10%;
 }
+
 section#newsletter .newsletter_text p {
     font-weight: 200;
     color: var(--white-color);
@@ -788,6 +793,10 @@ p {
 
 @media screen and (max-width:990px) {
 
+    .Title h2 {
+        font-size: 1.5rem;
+    }
+ 
     /* header영역 */
 
 
@@ -862,6 +871,7 @@ p {
     #menu_gnb #menu .show li {
         transition: 0.5s;
         height: 50px;
+        margin-left: 0;
     }
 
     #menu_gnb #menu .show li a {
@@ -903,7 +913,10 @@ p {
     }
 
     /* section영역 */
+    /* topcontent 영역 */
 
+
+ 
     /* section news영역 */
     section#bg_news .news_list ul {
         display: flex;
@@ -937,10 +950,12 @@ p {
         justify-content: center;
 
     }
+
     section#newsletter .newsletter_wrap .newsletter_title {
-        margin:0;
+        margin: 0;
 
     }
+
     section#newsletter .newsletter_wrap h2 {
         font-size: 2rem;
     }
@@ -957,7 +972,7 @@ p {
     }
 
     section#newsletter .newsletter_text {
-        padding-top:0;
+        padding-top: 0;
         align-items: baseline;
     }
 
@@ -970,7 +985,7 @@ p {
 
     .footer_bottom ul li {
         width: 100%;
-        margin-left: 0px!important;
+        margin-left: 0px !important;
         height: 50px;
         border-bottom: 1px solid var(--white-color);
     }
