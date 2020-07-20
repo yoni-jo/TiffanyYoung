@@ -473,7 +473,7 @@ section#shop a.showup{
 section#shop a:hover {
     border: 2px solid rgb(49, 49, 49);
     background-color: rgb(49, 49, 49);
-
+    transition:0.3s ;
 }
 
 /* media영역 */
@@ -626,13 +626,16 @@ section#newsletter .newsletter_text a {
     width: 250px;
     height: 60px;
     font-weight: bold;
-    transition: 0.2s;
     margin-top: 1.5rem;
-
-    animation: fadein 0.5s ease-in-out;
-
+    cursor: pointer;
 }
-
+section#newsletter .newsletter_text a:hover{
+   
+    border: 2px solid rgb(49, 49, 49);
+    background-color: rgb(49, 49, 49);
+    color: var(--white-color);
+    transition: 0.2s;
+}
 /* footer영역 */
 /* footer top영역 */
 footer {
