@@ -42,13 +42,13 @@ window.addEventListener('scroll', function () {
     let px = 0;
     let gray = 0;
     if (window.scrollY >= '300') {
-        
-        let px = scrollY*0.005
-        let gray = scrollY*0.08
+
+        let px = scrollY * 0.005
+        let gray = scrollY * 0.08
         top_content.style.filter = `blur(${px}px) grayscale(${gray}%)`
         top_content.style.animation = 'fadein'
 
-        ++px;
+            ++px;
         ++gray;
     } else {
 
@@ -59,19 +59,43 @@ window.addEventListener('scroll', function () {
 
 
 //스크롤시 자연스럽게 애니메이션 효과
+const bg_news = document.querySelector('#bg_news'); // 스크린 창
+const section = document.querySelectorAll('section');
+const shop_button=document.querySelector('.shop_button')
+const section_array = [];
+let count=0;
+const section_height=[];
 
+section.forEach(sections => { //세션별 높이값 구해서 배열로 담기
+   
+    section_array.push(sections)
+    section_height.push(section_array[count].offsetHeight)
+   
+    count++;
+
+})
 window.addEventListener('scroll', () => {
-	let scrollLocation = document.documentElement.scrollTop; // 현재 스크롤바 위치
-	const bg_news = document.querySelector('#bg_news'); // 스크린 창
-    const top_content = document.querySelector('#top_content');
-   
-   if(scrollLocation>=top_content.offsetHeight - 200){
-    bg_news.classList.remove('section_hide')
-    bg_news.classList.add('section_show')
-   }
-  else if(scrollLocation<top_content.offsetHeight - 200){
-    bg_news.classList.add('section_hide')
-    bg_news.classList.remove('section_show')
-  }
-   
+
+    let scrollLocation = document.documentElement.scrollTop; // 현재 스크롤바 위치
+
+    
+    
+    show(scrollLocation, bg_news, top_content)
+    console.log(scrollLocation)
+    if(scrollLocation>=section_height[0]+section_height[1] - 200){
+        console.log(shop_button)
+        shop_button.classList.add('showup')
+    }
 });
+// bgnews부분
+function show(a, b, c) {
+
+    if (a >= c.offsetHeight - 200) {
+        b.classList.remove('section_hide')
+        b.classList.add('section_show')
+    } else if (a < c.offsetHeight - 200) {
+        b.classList.add('section_hide')
+        b.classList.remove('section_show')
+    }
+
+}

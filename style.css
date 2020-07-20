@@ -436,6 +436,7 @@ section#bg_news .NewsButtonwrap>button:hover {
 /* shop 영역 */
 
 section#shop {
+    position: relative;
     background-image: url(img/shop/hp_bg_shop.jpg);
     width: 100%;
     height: 100vh;
@@ -448,7 +449,10 @@ section#shop {
     justify-content: center;
 }
 
-section#shop a {
+section#shop a{
+    opacity: 0;
+    position: absolute;
+    top:0;
     letter-spacing: 3px;
     font-size: 14px;
     color: var(--white-color);
@@ -459,9 +463,13 @@ section#shop a {
     width: 250px;
     height: 60px;
     font-weight: bold;
-    transition: 0.2s;
 }
-
+section#shop a.showup{
+    
+    opacity: 1;
+    top:50%;
+    transition: 1.0s;
+}
 section#shop a:hover {
     border: 2px solid rgb(49, 49, 49);
     background-color: rgb(49, 49, 49);
@@ -481,7 +489,6 @@ section#media>div {
     width: calc(100%/3);
     text-align: center;
     background-size: cover;
-
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
@@ -497,7 +504,9 @@ section#media div:hover .cover {
     visibility: visible;
 
 }
-
+section#media div:hover h2{
+    color:var(--pink-color)
+}
 section#media div>.cover {
     position: absolute;
     visibility: hidden;
@@ -832,7 +841,8 @@ p {
     #menu_gnb .logo a img {
         vertical-align: middle;
         padding: 0;
-
+        width: 200px;
+        margin-left: 20px;
         z-index: 444;
     }
 
